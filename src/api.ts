@@ -1,11 +1,7 @@
-import axios from 'axios';
+import { LOCAL_TEMPLATES } from './data/templates';
 
-const api = axios.create({
-  baseURL: 'http://localhost:3001/api',
-  headers: {
-    'x-api-key': 'default-dev-key' // Matches server default
-  }
-});
+// We are moving to Client-Side Only mode for Netlify compatibility
+// No backend URL needed.
 
 export interface Template {
   id: number;
@@ -23,16 +19,44 @@ export interface Prompt {
 }
 
 export const getTemplates = async () => {
-  const response = await api.get('/templates');
-  return response.data.data;
+  // Simulate API delay for realism
+  return new Promise<Template[]>((resolve) => {
+    setTimeout(() => {
+      resolve(LOCAL_TEMPLATES);
+    }, 300);
+  });
 };
 
 export const getPrompts = async () => {
-  const response = await api.get('/prompts');
-  return response.data.data;
+  return new Promise<Prompt[]>((resolve) => {
+    const saved = localStorage.getItem('json_prompts_v1');
+    const prompts = saved ? JSON.parse(saved) : [];
+    resolve(prompts);
+  });
 };
 
 export const savePrompt = async (prompt: { template_id: number | null, prompt_data: any, plain_text: string }) => {
-  const response = await api.post('/prompts', prompt);
-  return response.data;
+  return new Promise<{ message: string, data: { id: number } }>((resolve) => {
+    const saved = localStorage.getItem('json_prompts_v1');
+    const prompts: Prompt[] = saved ? JSON.parse(saved) : [];
+
+    const newPrompt: Prompt = {
+      id: Date.now(), // Simple ID generation
+      template_id: prompt.template_id || 0,
+      prompt_data: prompt.prompt_data,
+      plain_text: prompt.plain_text,
+      created_at: new Date().toISOString()
+    };
+
+    // Add to top
+    prompts.unshift(newPrompt);
+    // Limit to 50
+    const limited = prompts.slice(0, 50);
+
+    localStorage.setItem('json_prompts_v1', JSON.stringify(limited));
+
+    setTimeout(() => {
+      resolve({ message: "success", data: { id: newPrompt.id } });
+    }, 300);
+  });
 };

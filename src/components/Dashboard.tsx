@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Video, Image, MessageSquare, Wand2, ArrowRight, Globe, Shield, Cpu, Code, Layers, Sparkles } from 'lucide-react';
+import { Video, Image, MessageSquare, Wand2, ArrowRight, Shield, Cpu, Code, Layers, Sparkles } from 'lucide-react';
 import Footer from './Footer';
 import type { Template } from '../api';
 

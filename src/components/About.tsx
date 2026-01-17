@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Footer from './Footer';
-import { ArrowLeft, Users, Zap, Shield, Code } from 'lucide-react';
+import { ArrowLeft, Zap, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const About: React.FC = () => {

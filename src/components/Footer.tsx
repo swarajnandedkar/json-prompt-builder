@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Mail, Twitter, Github } from 'lucide-react';
+import { Globe, Twitter, Github } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Footer: React.FC = () => {

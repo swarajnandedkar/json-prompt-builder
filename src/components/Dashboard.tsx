@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Video, Image, MessageSquare, Wand2, ArrowRight, Globe, Shield, Cpu, Code, Layers, Sparkles } from 'lucide-react';
+import Footer from './Footer';
 import type { Template } from '../api';
 
 interface DashboardProps {
@@ -201,42 +202,7 @@ const Dashboard: React.FC<DashboardProps> = ({ templates, onSelectTemplate, onOp
             </section>
 
             {/* 5. GEO & SEO Footer Block */}
-            <footer className="bg-slate-950 pt-20 pb-12 border-t border-slate-900">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                        <div className="col-span-1 md:col-span-2">
-                            <h3 className="text-2xl font-bold text-white mb-4">JSON Prompt Generator</h3>
-                            <p className="text-slate-500 leading-relaxed max-w-sm">
-                                The world's leading open-source tool for structured AI interaction. Optimized for US, UK, Canada, and global creative professionals.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 className="text-white font-bold mb-4">Tools</h4>
-                            <ul className="space-y-2 text-slate-500 text-sm">
-                                <li><button onClick={() => onSelectTemplate(templates[0])} className="hover:text-white">Veo 3 Generator</button></li>
-                                <li><button onClick={onOpenConverter} className="hover:text-white">Text Converter</button></li>
-                                <li><a href="#" className="hover:text-white">API Docs</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-white font-bold mb-4">Legal</h4>
-                            <ul className="space-y-2 text-slate-500 text-sm">
-                                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-                                <li><a href="#" className="hover:text-white">Terms of Use</a></li>
-                                <li><a href="#" className="hover:text-white">Cookie Preferences</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
-                        <p>© 2025 JSON Prompt Generator. Built for the AI Community.</p>
-                        <div className="flex space-x-4 mt-4 md:mt-0 items-center">
-                            <Globe size={12} />
-                            <span>Global CDN Optimized</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
         </div>
     );

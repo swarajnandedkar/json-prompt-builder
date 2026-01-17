@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Builder from './Builder';
 import { getTemplates } from '../api';
 import type { Template } from '../api';
+import Footer from './Footer';
 import { Palette, Image as ImageIcon, Layers, Zap, ArrowRight, LayoutTemplate } from 'lucide-react';
 
 const ImageToolPage: React.FC = () => {
@@ -225,9 +226,7 @@ const ImageToolPage: React.FC = () => {
 
             </div>
 
-            <footer className="py-12 border-t border-slate-900 bg-slate-950 text-center text-slate-600">
-                <p className="text-sm">© 2025 JSON Prompt Generator. Local & Secure.</p>
-            </footer>
+            <Footer />
         </div>
     );
 };

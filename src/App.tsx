@@ -8,6 +8,11 @@ import ImageToolPage from './components/ImageToolPage';
 import GeneralToolPage from './components/GeneralToolPage';
 import SoraToolPage from './components/SoraToolPage';
 import ConverterToolPage from './components/ConverterToolPage';
+import About from './components/About';
+import Disclaimer from './components/Disclaimer';
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
+import Contact from './components/Contact';
 import { getTemplates, getPrompts } from './api';
 import type { Template, Prompt } from './api';
 
@@ -164,6 +169,13 @@ function App() {
                 <BuilderRoute templates={templates} loadData={loadData} />
               } />
               <Route path="/converter" element={<ConverterToolPage />} />
+
+              {/* Static Pages */}
+              <Route path="/about" element={<About />} />
+              <Route path="/disclaimer" element={<Disclaimer />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Builder from './Builder';
 import { getTemplates } from '../api';
 import type { Template } from '../api';
+import Footer from './Footer';
 import { Sparkles, Layers, FileJson, Zap, Users, ArrowRight } from 'lucide-react';
 
 const VeoToolPage: React.FC = () => {
@@ -294,15 +295,7 @@ const VeoToolPage: React.FC = () => {
             </div>
 
             {/* Footer */}
-            <footer className="py-12 border-t border-slate-900 bg-slate-950 text-center text-slate-600">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-                    <p className="text-sm">© 2025 JSON Prompt Generator. Local & Secure.</p>
-                    <div className="flex space-x-6 mt-4 md:mt-0 text-sm">
-                        <a href="#" className="hover:text-slate-400 transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-slate-400 transition-colors">Terms</a>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
         </div>
     );

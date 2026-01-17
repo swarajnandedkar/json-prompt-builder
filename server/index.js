@@ -50,8 +50,16 @@ app.get('/api/templates', (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
       return;
     }
+    const safeData = rows.map(row => {
+      try {
+        return { ...row, json_structure: JSON.parse(row.json_structure) };
+      } catch (e) {
+        console.error(`Failed to parse JSON for template ${row.id}:`, e);
+        return { ...row, json_structure: {} }; // Fallback to empty object
+      }
+    });
     res.json({
-      data: rows.map(row => ({ ...row, json_structure: JSON.parse(row.json_structure) }))
+      data: safeData
     });
   });
 });
